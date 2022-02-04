@@ -1,0 +1,25 @@
+const express = require('express');
+const cors = require("cors")
+const app = express();
+require("dotenv").config()
+const port = process.env.PORT
+const adminRoute = require("./routes/adminroute")
+// const employeeRoute = require("./routes/employeeroute")
+const dbConnect = require("./configs/db");
+
+
+
+dbConnect()
+
+app.use(express.json());
+app.use(cors())
+app.use(express.urlencoded({ extended:true}))
+
+
+// app.use("/admin",adminRoute)
+// app.use("/employee",employeeRoute)
+
+
+app.listen(port,(req,res)=>{
+    console.log(`server is running on http://localhost:${port}`);
+})
