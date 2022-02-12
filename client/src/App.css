@@ -22,13 +22,19 @@ body{
   background-image: linear-gradient(45deg, black, transparent);
 }
 
-.card{
-  margin-top: 100px !important;
-  margin-bottom: 2rem !important;
+.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.MuiListItem-button.css-bshv44-MuiButtonBase-root-MuiListItem-root{
+  border-bottom: 1px solid gray;
+ color: rgb(116, 116, 116);
 }
-.col-3{
-  width: 34% !important;
+.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.MuiListItem-button.css-bshv44-MuiButtonBase-root-MuiListItem-root:hover{
+color: black;
+background-color:rgb(208, 242, 255)
 }
+
+.admin{
+  margin-left:"120px";
+}
+
 
 /* media quary Registetion form*/
 

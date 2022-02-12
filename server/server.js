@@ -3,8 +3,8 @@ const cors = require("cors")
 const app = express();
 require("dotenv").config()
 const port = process.env.PORT
-const adminRoute = require("./routes/adminroute")
-// const employeeRoute = require("./routes/employeeroute")
+// const adminRoute = require("./routes/adminroute")
+const employeeroute = require("./routes/employeeroute")
 const dbConnect = require("./configs/db");
 
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended:true}))
 
 
 // app.use("/admin",adminRoute)
-// app.use("/employee",employeeRoute)
+app.use("/",employeeroute)
 
 
 app.listen(port,(req,res)=>{

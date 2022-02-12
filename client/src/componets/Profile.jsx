@@ -2,7 +2,6 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
@@ -14,12 +13,17 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import PeopleIcon from "@mui/icons-material/People";
 import ViewListIcon from "@mui/icons-material/ViewList";
-import DownloadDoneIcon from "@mui/icons-material/DownloadDone";
 import LogoutIcon from "@mui/icons-material/Logout";
 import pic from "../image/logo.png";
-const drawerWidth = 240;
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import EventIcon from '@mui/icons-material/Event';
+import { Link } from 'react-router-dom'
+import MoneyIcon from '@mui/icons-material/Money';
+const drawerWidth = 245;
 
 function Profile(props) {
+
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -27,10 +31,13 @@ function Profile(props) {
     setMobileOpen(!mobileOpen);
   };
   const icon = [
-    <PeopleIcon />,
-    <ViewListIcon />,
-    <DownloadDoneIcon />,
-    <LogoutIcon />,
+    <PeopleIcon style={{ color: 'rgb(0, 175, 239)' }} />,
+    <PersonAddIcon style={{ color: 'rgb(0, 175, 239)' }} />,
+    <ViewListIcon style={{ color: 'rgb(0, 175, 239)' }} />,
+    <EventIcon style={{ color: 'rgb(0, 175, 239)' }} />,
+    <MoneyIcon style={{ color: 'rgb(0, 175, 239)' }} />,
+    <LogoutIcon style={{ color: 'rgb(0, 175, 239)' }} />,
+    
   ];
   const drawer = (
     <div>
@@ -39,12 +46,14 @@ function Profile(props) {
       </Toolbar>
 
       <List>
-        {[" Comapny Profile", "Holiday list", "Sallery slip", "Logout"].map(
+        {[" Comapny Profile","Add Employee","All Employee", "Holiday list", "Sallery slip", "Logout"].map(
           (text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{icon[index]}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+            <Link className="text-decoration-none" to={`/${text}`}>
+              <ListItem button key={text}>
+                <ListItemIcon>{icon[index]}</ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </Link>
           )
         )}
       </List>
@@ -75,7 +84,7 @@ function Profile(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Company Portal
+            Company portal
           </Typography>
         </Toolbar>
       </AppBar>
@@ -115,6 +124,8 @@ function Profile(props) {
         >
           {drawer}
         </Drawer>
+
+
       </Box>
       <Box
         component="main"

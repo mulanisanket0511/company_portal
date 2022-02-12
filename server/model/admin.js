@@ -5,7 +5,7 @@ const adminSchema =  mongoose.Schema({
         type:String
     },
     pic: {
-        type:Array
+        type:String
     },
     email:{
         type:String
@@ -13,7 +13,7 @@ const adminSchema =  mongoose.Schema({
     phone:{
         type:String
     },
-    pass:{
+    password:{
         type:String
     },
     role: {

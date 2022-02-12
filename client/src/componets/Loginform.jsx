@@ -12,25 +12,38 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
 
 function Copyright(props) {
   return
-
-
 }
 
 const theme = createTheme();
 
 export default function SignInSide() {
+
+  const [email, setemail] = React.useState("")
+  const [password, setpassword] = React.useState("")
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const data = {
+      email: email,
+      password: password
+    }
+    axios.post("http://localhost:5000/login", data)
+      .then((res) => {
+        console.log(res.data)
+        localStorage.setItem("user", res.data._id)
+        window.location="/%20Comapny%20Profile"
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -51,8 +64,8 @@ export default function SignInSide() {
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box 
-          style={{marginTop:130}}
+          <Box
+            style={{ marginTop: 130 }}
             sx={{
               my: 8,
               mx: 4,
@@ -70,6 +83,7 @@ export default function SignInSide() {
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
+                onChange={(e) => setemail(e.target.value)}
                 required
                 fullWidth
                 id="email"
@@ -80,6 +94,7 @@ export default function SignInSide() {
               />
               <TextField
                 margin="normal"
+                onChange={(e) => setpassword(e.target.value)}
                 required
                 fullWidth
                 name="password"
@@ -90,7 +105,8 @@ export default function SignInSide() {
               />
 
               <Button
-                type="submit"
+                
+                onClick={(e) => handleSubmit(e)}
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
@@ -101,8 +117,8 @@ export default function SignInSide() {
                 <Grid item xs>
 
                 </Grid>
-                <div style={{textAlign:"center"}} className="container my-4">
-                  Don't have an account? <span> <a style={{textDecoration: 'none'}} href="/user-register">Sign Up</a> </span>
+                <div style={{ textAlign: "center" }} className="container my-4">
+                  Don't have an account? <span> <a style={{ textDecoration: 'none' }} href="/user-register">Sign Up</a> </span>
                 </div>
 
               </Grid>
