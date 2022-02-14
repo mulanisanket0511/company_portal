@@ -1,12 +1,11 @@
 import './App.css';
-import Navbar from './componets/Navbar';
-import Loginform from './componets/Loginform'
+import Loginform from './componets/Adminportal/Loginform'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Signup from './componets/Registrationform';
-import Profile from './componets/Profile';
-import Logout from './componets/Logout';
-import Companyprofile from './componets/Companyprofile';
+import Signup from './componets/Adminportal/Registrationform';
+import Profile from './componets/Adminportal/Profile';
+import Logout from './componets/Adminportal/Logout';
+import Companyprofile from './componets/Adminportal/Companyprofile';
 import RegistrationForm from './componets/EmployeeCRUD/RegistrationForm';
 
 function App() {

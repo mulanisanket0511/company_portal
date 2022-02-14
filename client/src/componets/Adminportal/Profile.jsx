@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import PeopleIcon from "@mui/icons-material/People";
 import ViewListIcon from "@mui/icons-material/ViewList";
 import LogoutIcon from "@mui/icons-material/Logout";
-import pic from "../image/logo.png";
+import pic from "../../image/logo.png";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import EventIcon from '@mui/icons-material/Event';
 import { Link } from 'react-router-dom'

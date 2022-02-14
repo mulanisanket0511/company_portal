@@ -5,12 +5,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import pic from '../image/employees.jpg'
-import pic1 from '../image/technologies.png'
-import pic2 from '../image/projects.jpg'
-import pic3 from '../image/pending.jpg'
-import pic4 from '../image/web.png'
-import pic5 from '../image/app.png'
+import pic from '../../image/employees.jpg'
+import pic1 from '../../image/technologies.png'
+import pic2 from '../../image/projects.jpg'
+import pic3 from '../../image/pending.jpg'
+import pic4 from '../../image/web.png'
+import pic5 from '../../image/app.png'
 import { Container, Grid } from '@mui/material';
 import SentimentSatisfiedAltSharpIcon from '@mui/icons-material/SentimentSatisfiedAltSharp';
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';

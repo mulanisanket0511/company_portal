@@ -49,7 +49,7 @@ export default function Signup() {
         axios.post("http://localhost:5000/add-user", data)
             .then((res) => {
                 alert("Data send successfully..")
-                window.location = "/user-form"
+                window.location = "/"
             })
             .catch((err) => console.log(err))
 
