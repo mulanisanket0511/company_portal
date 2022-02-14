@@ -37,7 +37,7 @@ export default function SignInSide() {
       .then((res) => {
         console.log(res.data)
         localStorage.setItem("user", res.data._id)
-        window.location="/%20Comapny%20Profile"
+        window.location="/profile"
       })
       .catch((err) => {
         console.log(err);

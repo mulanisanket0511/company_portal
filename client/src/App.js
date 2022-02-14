@@ -1,12 +1,13 @@
 import './App.css';
-import Loginform from './componets/Adminportal/Loginform'
+  import Loginform from './componets/Adminportal/Loginform'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Signup from './componets/Adminportal/Registrationform';
-import Profile from './componets/Adminportal/Profile';
+import Admindetail from './componets/Adminportal/Admindetail';
 import Logout from './componets/Adminportal/Logout';
 import Companyprofile from './componets/Adminportal/Companyprofile';
 import RegistrationForm from './componets/EmployeeCRUD/RegistrationForm';
+import { Profile } from './componets/Adminportal/Profile';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
         localStorage.getItem("user") ?
           <>
             <BrowserRouter >
-              <Profile />
+              <Admindetail />
               <Routes>
-                <Route exact path="/%20Comapny%20Profile" element={<Companyprofile/>} />
-                <Route exact path="/Add%20Employee" element={<RegistrationForm/>} />
+                <Route exact path="/Dashboard" element={<Companyprofile/>} />
+                <Route exact path="/add-employee" element={<RegistrationForm/>} />
+                <Route exact path="/profile" element={<Profile/>} />
                 <Route exact path="/logout" element={<Logout />} />
               </Routes>
             </BrowserRouter>
