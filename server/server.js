@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended:true}))
 
 
 // app.use("/admin",adminRoute)
-app.use("/",employeeroute)
+app.use("/",adminRoute)
 
 
 app.listen(port,(req,res)=>{

@@ -1,9 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const {createUser} = require("../controller/admincontroller")
+const express = require('express')
+const { Login ,alladmin, Addadmin} = require('../controller/admincontroller')
+const upload = require('../middelware/multer')
+const router = express.Router()
 
 
+router.get("/all",alladmin)
+router.post('/add-user',upload.single("pic"), Addadmin)
+router.post('/login', Login)
 
-router.post("/add", createUser);
-
-module.exports = router;
+module.exports = router

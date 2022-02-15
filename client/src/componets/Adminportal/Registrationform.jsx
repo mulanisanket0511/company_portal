@@ -20,7 +20,7 @@ const theme = createTheme();
 export default function Signup() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
-  const [mobile, setmobile] = useState("");
+  const [phone, setphone] = useState("");
   const [image, setimage] = useState();
   const [password, setpassword] = useState("");
   const [data, setData] = useState([]);
@@ -34,18 +34,19 @@ export default function Signup() {
   }, []);
 
   const sendData = () => {
-    const data = {
-      name: name,
-      email: email,
-      phone: mobile,
-      pic: image,
-      password: password,
-      role: value,
-    };
+
+    var data = new FormData
+    data.append("name",name);
+    data.append("email",email);
+    data.append("phone",phone);
+    data.append("password",password);
+    data.append("pic",image);
+    data.append("role",role);
+
+    
     console.log(data);
 
-    axios
-      .post("http://localhost:5000/add-user", data)
+    axios.post("http://localhost:5000/add-user", data)
       .then((res) => {
         alert("Data send successfully..");
         window.location = "/";
@@ -58,7 +59,7 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name === "" || email === "" || mobile === "" || password === "") {
+    if (name === "" || email === "" || phone === "" || password === "") {
       alert("please fill-up the details");
     } else if (emaildata.includes(email)) {
       alert("email already exist please use other email.");
@@ -133,9 +134,9 @@ export default function Signup() {
                   margin="normal"
                   required
                   fullWidth
-                  id="mobile"
-                  onChange={(e) => setmobile(e.target.value)}
-                  label="mobile no"
+                  id="phone"
+                  onChange={(e) => setphone(e.target.value)}
+                  label="phone no"
                   name="email"
                   autoComplete="email"
                   autoFocus

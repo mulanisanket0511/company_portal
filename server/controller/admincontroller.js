@@ -1,57 +1,52 @@
-const admin = require("../model/admin");
-const cloudinary = require("cloudinary").v2;
-cloudinary.config({
-  cloud_name: "web-brain",
-  api_key: "963419561286416",
-  api_secret: "iyqWVOXGLFdngjJAGn_wtNkbNEU",
-});
+const express = require('express')
+const admin = require('../model/admin')
 
-// Create and Save a new Tutorial
-exports.createUser = async(req, res) => {
-    const { name, email, phone, pass,role } = req.body;
 
-    const emailVerify = await admin.findOne({ email: email }).lean();
-  
-    if (emailVerify) res.json({ error: "Email already Exists." });
-  
-    if (!emailVerify) {
-      const createUser = await admin.create({
-        name: name,
-        email: email,
-        pic:img,
-        phone: phone,
-        pass: pass,
-        role:role,
-      });
-  
-      createUser.save();
-      if (createUser) res.json({ success: "User added Successfully" });
+exports.alladmin = async(req,res) => {
+    var Alladmin = await admin.find({}).lean()
+    res.send(Alladmin)
+    // res.json(admin)
+}
+
+
+exports.Addadmin = async (req,res) => {
+        console.log(req.body);
+        console.log(req.file);
+        const { name, email,password, phone,role } = req.body
+        const pic = req.file 
+        var path = ""
+        if(pic.path){
+            path = pic.path
+            console.log(path)
+        }
+        console.log(path)
+        if (path !== "") {
+            var createadmin = await admin.create({
+                name: name,
+                email: email,
+                phone: phone,
+                pic: path,
+                password: password,
+                role: role
+            })
+            createadmin.save()
+            if (createadmin) res.json({ success: "admin added Successfully" })
+        }
+    // }
+    // catch{
+    //     res.json({msg:"admin creation fail"})
+    // }
+}
+
+
+
+exports.Login = async (req, res) => {
+    const { email, password } = req.body
+    const loginadmin = await admin.findOne({ email: email, password: password })
+    if (loginadmin) {
+        res.send(loginadmin)
     }
-  };
-  
-
-
-// Retrieve all Tutorials from the database.
-exports.findAll = (req, res) => {
-  
-};
-
-// Find a single Tutorial with an id
-exports.findOne = (req, res) => {
-  
-};
-
-// Update a Tutorial by the id in the request
-exports.update = (req, res) => {
-  
-};
-
-// Delete a Tutorial with the specified id in the request
-exports.delete = (req, res) => {
-  
-};
-
-// Delete all Tutorials from the database.
-exports.deleteAll = (req, res) => {
-  
-};
+    else {
+        res.status(400).send({ msg: 'Error please do it again' })
+    }
+}
