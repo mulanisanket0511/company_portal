@@ -59,3 +59,9 @@ exports.Login = async (req, res) => {
   
 
 
+
+exports.readonedetail = async (req, res) => {
+    var id = req.params.id
+    const readadmin = await admin.findOne({ _id: id }).lean()
+    res.send(readadmin)
+}

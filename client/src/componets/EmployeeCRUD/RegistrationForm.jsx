@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SiWebpack } from 'react-icons/si';
 
 function Copyright(props) {
   return (
@@ -52,29 +53,19 @@ export default function RegistrationForm() {
           }}
         >
           <Typography style={{ marginBottom: 20 }} component="h1" variant="h4">
-            Registetion Form
+          <SiWebpack />  Registetion Form   <SiWebpack /> 
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="Name"
                   autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -87,6 +78,17 @@ export default function RegistrationForm() {
                   autoComplete="email"
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="phone"
+                  label="phone"
+                  name="phone"
+                  autoComplete="phone"
+                />
+              </Grid>
+             
               <Grid item xs={12}>
                 <TextField
                   required

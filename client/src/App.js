@@ -8,6 +8,7 @@ import Logout from './componets/Adminportal/Logout';
 import Companyprofile from './componets/Adminportal/Companyprofile';
 import RegistrationForm from './componets/EmployeeCRUD/RegistrationForm';
 import { Profile } from './componets/Adminportal/Profile';
+import Allemployee from './componets/Adminportal/Allemployee';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Routes>
                 <Route exact path="/Dashboard" element={<Companyprofile/>} />
                 <Route exact path="/add-employee" element={<RegistrationForm/>} />
+                <Route exact path="/all-employee" element={<Allemployee/>} />
                 <Route exact path="/profile" element={<Profile/>} />
                 <Route exact path="/logout" element={<Logout />} />
               </Routes>

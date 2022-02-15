@@ -1,9 +1,53 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import profile from '../../image/profile.jpg'
+import { AiFillCaretRight } from "react-icons/ai";
+import axios from 'axios';
+import { Card, CardContent } from '@mui/material';
 
 export const Profile = () => {
-  return (
-      <>
-      <h1 style={{fontSize:100,marginLeft:500}}>keyur mulani</h1>
-      </>
-  )
+
+
+    const [user, setuser] = React.useState([])
+    const id = localStorage.getItem("user")
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/user/${id}`)
+            .then((res) => {
+                setuser(res.data)
+                console.log(res);
+            })
+            .catch((err) => console.log(err))
+    }, [])
+
+
+
+    return (
+        <>
+
+            <div className="row" style={{}}>
+                <div className="col-2">
+                    keyur
+                </div>
+                <div className="col-4">
+
+                    <img style={{ borderRadius: "115px",width: "222px", height: "215px",marginLeft:"40px"}}
+                        src={user.pic} alt="profile" />
+
+                </div>
+                
+                    <div style={{ marginTop: '20px' }} className="col-6">
+                      
+                        <h4 style={{ fontWeight: "bold" }}> <AiFillCaretRight />  Name: {user.name} </h4><br />
+                        <h4 style={{ fontWeight: "bold" }}> <AiFillCaretRight />  Email: {user.email} </h4><br />
+                        <h4 style={{ fontWeight: "bold" }}> <AiFillCaretRight />  Phone:  {user.phone}</h4><br />
+                        <h4 style={{ fontWeight: "bold" }}> <AiFillCaretRight />  role:  {user.role}</h4>
+                      
+                    </div>
+
+              
+
+            </div>
+
+        </>
+    )
 }

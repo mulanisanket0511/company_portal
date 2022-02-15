@@ -75,6 +75,7 @@ export default function Companyprofile() {
 
                     <Card sx={{ border: 1, borderRadius: 5, borderColor: "rgb(235, 235, 235)", backgroundColor: "rgb(200, 250, 205)" }}>
                         <CardMedia
+                           
                             component="img"
                             height="200"
                             image={pic1}
