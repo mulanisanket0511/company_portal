@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import pic from '../../image/employees.jpg'
 import pic1 from '../../image/technologies.png'
@@ -13,7 +11,6 @@ import pic4 from '../../image/web.png'
 import pic5 from '../../image/app.png'
 import { Container, Grid } from '@mui/material';
 import SentimentSatisfiedAltSharpIcon from '@mui/icons-material/SentimentSatisfiedAltSharp';
-import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import { FcPlus } from "react-icons/fc";
 import { BsArrowRight } from "react-icons/bs";
 import { SiWebpack } from "react-icons/si";
@@ -29,7 +26,7 @@ export default function Companyprofile() {
                 <Typography
                     style={{ fontWeight: "bold" }}
                     variant="h5"
-                    sx={{ ml: 25 }}
+                    sx={{ ml:25 }}
                     align="center"
                     color='success.main'
                     gutterBottom

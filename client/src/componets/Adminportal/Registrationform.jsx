@@ -35,7 +35,7 @@ export default function Signup() {
 
   const sendData = () => {
 
-    var data = new FormData
+    var data = new FormData ();
     data.append("name",name);
     data.append("email",email);
     data.append("phone",phone);
@@ -48,6 +48,7 @@ export default function Signup() {
 
     axios.post("http://localhost:5000/add-user", data)
       .then((res) => {
+        console.log(res);
         alert("Data send successfully..");
         window.location = "/";
       })

@@ -9,14 +9,15 @@ const dbConnect = require("./configs/db");
 
 
 
+
+
 dbConnect()
 
 app.use(express.json());
 app.use(cors())
-app.use(express.urlencoded({ extended:true}))
+// app.use(express.urlencoded({ extended:true}))
+app.use("/public",express.static(__dirname + "/public"))
 
-
-// app.use("/admin",adminRoute)
 app.use("/",adminRoute)
 
 

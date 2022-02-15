@@ -1,10 +1,5 @@
 const admin = require("../model/admin");
-const cloudinary = require("cloudinary").v2;
-cloudinary.config({
-  cloud_name: "web-brain",
-  api_key: "963419561286416",
-  api_secret: "iyqWVOXGLFdngjJAGn_wtNkbNEU",
-});
+
 
 // Create and Save a new Tutorial
 exports.createUser = async(req, res) => {

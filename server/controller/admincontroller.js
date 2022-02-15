@@ -1,5 +1,7 @@
 const express = require('express')
+const {uploadsingle} = require('../middelware/cloudinary')
 const admin = require('../model/admin')
+const fs = require('fs')
 
 
 exports.alladmin = async(req,res) => {
@@ -10,17 +12,21 @@ exports.alladmin = async(req,res) => {
 
 
 exports.Addadmin = async (req,res) => {
+  try{
         console.log(req.body);
         console.log(req.file);
         const { name, email,password, phone,role } = req.body
-        const pic = req.file 
-        var path = ""
-        if(pic.path){
-            path = pic.path
-            console.log(path)
-        }
+        const pic = req.file
+        var path = await uploadsingle(pic.path);
+        fs.unlink(pic.path, () => {
+            console.log({
+                status: "200",
+                responseType: "string",
+                response: "success"
+            })
+        })
         console.log(path)
-        if (path !== "") {
+        if (path.length !== 0) {
             var createadmin = await admin.create({
                 name: name,
                 email: email,
@@ -28,16 +34,16 @@ exports.Addadmin = async (req,res) => {
                 pic: path,
                 password: password,
                 role: role
-            })
+            })}
+            console.log(createadmin);
             createadmin.save()
             if (createadmin) res.json({ success: "admin added Successfully" })
         }
-    // }
-    // catch{
-    //     res.json({msg:"admin creation fail"})
-    // }
-}
-
+          catch(err){
+        //   res.json({msg:"user added failed"})
+          console.log(err);
+           }
+}   
 
 
 exports.Login = async (req, res) => {
@@ -50,3 +56,6 @@ exports.Login = async (req, res) => {
         res.status(400).send({ msg: 'Error please do it again' })
     }
 }
+  
+
+
