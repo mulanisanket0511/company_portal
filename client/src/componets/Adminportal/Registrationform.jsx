@@ -113,6 +113,8 @@ export default function Signup(props) {
                   component="h4"
                   variant="h4"
                 >
+                  {/* pass the props for name */}
+                  
                     {props.name}
                               
                 </Typography>

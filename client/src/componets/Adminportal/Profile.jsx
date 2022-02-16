@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import profile from '../../image/profile.jpg'
 import { AiFillCaretRight } from "react-icons/ai";
 import axios from 'axios';
+import pic from '../../image/background.png'
 import { Card, CardContent } from '@mui/material';
 
 export const Profile = () => {
@@ -24,13 +25,16 @@ export const Profile = () => {
     return (
         <>
 
-            <div className="row" style={{}}>
+            <div className="row">
+                <div style={{marginLeft:"150px",fontWeight:"bold",color:"green",fontFamily:"'Shizuru', 'cursive'"}} className="heading text-center">
+                <h1>Profile Details :-</h1>
+                </div><hr/>
                 <div className="col-2">
-                    keyur
+                    
                 </div>
                 <div className="col-4">
 
-                    <img style={{ borderRadius: "115px",width: "222px", height: "215px",marginLeft:"40px"}}
+                    <img style={{ borderRadius: "115px",width: "222px", height: "215px",marginLeft:"100px",marginTop:"22px"}}
                         src={user.pic} alt="profile" />
 
                 </div>
