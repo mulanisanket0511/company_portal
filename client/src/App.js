@@ -6,7 +6,6 @@ import Signup from './componets/Adminportal/Registrationform';
 import Admindetail from './componets/Adminportal/Admindetail';
 import Logout from './componets/Adminportal/Logout';
 import Companyprofile from './componets/Adminportal/Companyprofile';
-import { Addemployee } from './componets/EmployeeCRUD/Addemployee';
 import { Profile } from './componets/Adminportal/Profile';
 import Allemployee from './componets/Adminportal/Allemployee';
 

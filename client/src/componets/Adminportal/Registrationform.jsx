@@ -91,8 +91,9 @@ export default function Signup(props) {
 
   return (
     <>
-      <div className="row" style={{ display: "flex", justifyContent: "center" }}>
-        <div className="col-4 card" style={{ width: "450px", marginTop: "50px" }}>
+   <div className={!props.role?null:"responsive"} style={{ display: "flex", justifyContent: "center" }}>
+       
+        <div className="col-4 card" style={{ width: "450px", marginLeft: "auto !important",marginRight: "auto !important",marginTop:"50px" }}>
           <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
               <CssBaseline />
@@ -170,7 +171,7 @@ export default function Signup(props) {
                     required
                     fullWidth
                     autoFocus
-                    label="Enter rsYour Role"
+                    label="Enter Your Role"
                     value={role}
                     onChange={(e) => setrole(e.target.value)}
                   >
@@ -202,7 +203,9 @@ export default function Signup(props) {
             </Container>
           </ThemeProvider>
         </div>
-      </div>
+        </div>
+      
+
     </>
   );
 }

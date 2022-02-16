@@ -1,77 +1,115 @@
-body{
+body {
   margin: 0 !important;
   padding: 0 !important;
-  
+
 }
-.css-1yb0leh-MuiTypography-root{
+
+.css-1yb0leh-MuiTypography-root {
   text-align: center;
-  font-family:'Monoton', cursive !important;
+  font-family: 'Monoton', cursive !important;
   font-weight: bold !important;
 
 }
-.css-1t29gy6-MuiToolbar-root1{
-  background-image: linear-gradient(to right,blue,skyblue);
+
+.css-1t29gy6-MuiToolbar-root1 {
+  background-image: linear-gradient(to right, blue, skyblue);
 }
-.css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
   font-weight: bold !important;
 }
-.css-5lbw0b-MuiTypography-root{
+
+.css-5lbw0b-MuiTypography-root {
   font-weight: bold !important;
 }
-.css-1vhaqj4-MuiButtonBase-root-MuiButton-root{
+
+.css-1vhaqj4-MuiButtonBase-root-MuiButton-root {
   background-image: linear-gradient(45deg, black, transparent);
 }
 
-.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.MuiListItem-button.css-bshv44-MuiButtonBase-root-MuiListItem-root{
+.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.MuiListItem-button.css-bshv44-MuiButtonBase-root-MuiListItem-root {
   border-bottom: 1px solid gray;
- color: rgb(116, 116, 116);
-}
-.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.MuiListItem-button.css-bshv44-MuiButtonBase-root-MuiListItem-root:hover{
-color: black;
-background-color:rgb(208, 242, 255)
+  color: rgb(116, 116, 116);
 }
 
-.admin{
-  margin-left:"120px";
+.MuiButtonBase-root.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.MuiListItem-button.css-bshv44-MuiButtonBase-root-MuiListItem-root:hover {
+  color: black;
+  background-color: rgb(208, 242, 255)
 }
 
+.admin {
+  margin-left: "120px";
+}
+
+.responsive {
+  justify-content: center;
+  display: flex;
+  margin-top: -90px !important
+}
 
 /* media quary Registetion form*/
 
 @media screen and (min-width: 280px) {
   .MuiTypography-root.MuiTypography-h4.css-1yb0leh-MuiTypography-root {
-font-size: 20px !important;  }
- }
-@media screen and (max-width: 457px) {
-  .card {width: 350px !important;
-}
-}
-@media screen and (max-width: 345px) {
-  .card {width: 320px !important;
-}
-}
-@media screen and (max-width: 360px) {
-.card{width: 335px !important;
-margin-right: 10px !important;}
-}
-@media screen and (max-width: 375px) {
-  .card {margin-left: 10px  !important;
-}
-}
-@media screen and (max-width: 320px) {
-  .card {width: 300px !important;
-    margin-left: 5px !important;
-}
-.MuiBox-root.css-164r41r{
-  width: 280px !important;
-}
-}
-@media screen and (max-width: 280px) {
-  .card {width: 285px !important;
-    margin-left: 35px !important;
-}
-.MuiBox-root.css-164r41r{
-  width: 260px !important;
-}
+    font-size: 20px !important;
+  }
 }
 
+@media screen and (max-width: 457px) {
+  .card {
+    width: 350px !important;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .card {
+    width: 320px !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .card {
+    width: 335px !important;
+    margin-right: 10px !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .card {
+    margin-left: 10px !important;
+
+  }
+
+  
+}
+
+@media screen and (max-width: 320px) {
+  .card {
+    width: 300px !important;
+    margin-left: 5px !important;
+  }
+
+  .MuiBox-root.css-164r41r {
+    width: 280px !important;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .card {
+    width: 290px !important;
+    /* margin-left: 15px !important; */
+  }
+
+  .MuiBox-root.css-164r41r {
+    width: 260px !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .responsive{
+    margin-left:250px !important;
+  }
+}
+
+ 
+
+ 
