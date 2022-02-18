@@ -46,6 +46,14 @@ body {
   display: flex;
   margin-top: -90px !important
 }
+.background{
+  background-image: url("./image/background.png");
+  margin-top: -65px !important;
+}
+Card{
+  margin-top: 100px !important;
+}
+
 
 /* media quary Registetion form*/
 
