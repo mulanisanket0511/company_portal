@@ -40,17 +40,18 @@ export default function Signup(props) {
 
   const sendData = () => {
 
-    var data = new FormData();
+    
+
+
+    console.log(data);
+    if (!props.role) {
+      var data = new FormData();
     data.append("name", name);
     data.append("email", email);
     data.append("phone", phone);
     data.append("password", password);
     data.append("pic", image);
     data.append("role", role);
-
-
-    console.log(data);
-    if (!props.role) {
       //admin
       axios.post("http://localhost:5000/add-user", data)
         .then((res) => {
@@ -61,8 +62,15 @@ export default function Signup(props) {
         .catch((err) => console.log(err));
     }
     else {
+      var data = new FormData();
+    data.append("name", name);
+    data.append("email", email);
+    data.append("phone", phone);
+    data.append("password", password);
+    data.append("employeepic", image);
+    data.append("role", role);
       //employee
-      axios.post("http://localhost:5000/add-user", data)
+      axios.post("http://localhost:5000/employee/add-employee", data)
         .then((res) => {
           console.log(res);
           alert("Data send successfully..");

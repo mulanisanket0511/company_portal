@@ -1,38 +1,51 @@
-const admin = require("../model/admin");
-
+const employee = require("../model/employee");
+const fs = require('fs');
+const express = require('express')
+const { uploadsingle } = require("../middelware/cloudinary");
 
 // Create and Save a new Tutorial
-exports.createUser = async(req, res) => {
-    const { name, email, phone, pass,role } = req.body;
-
-    const emailVerify = await admin.findOne({ email: email }).lean();
-  
-    if (emailVerify) res.json({ error: "Email already Exists." });
-  
-    if (!emailVerify) {
-      const createUser = await admin.create({
-        name: name,
-        email: email,
-        pic:img,
-        phone: phone,
-        pass: pass,
-        role:role,
-      });
-  
-      createUser.save();
-      if (createUser) res.json({ success: "User added Successfully" });
-    }
-  };
-  
+exports.addemployee = async(req, res) => {
+  try{
+    console.log(req.body);
+    console.log(req.file);
+    const { name, email, phone, password,role } = req.body;
+    const pic = req.file
+        var path = await uploadsingle(pic.path,pic.fieldname);
+        fs.unlink(pic.path, () => {
+            console.log({
+                status: "200",
+                responseType: "string",
+                response: "success"
+            })
+        })
+        console.log(path)
+        if (path.length !== 0) {
+            var createemployee = await employee.create({
+                name: name,
+                email: email,
+                phone: phone,
+                pic: path,
+                password: password,
+                role: role
+            })}
+            console.log(createemployee);
+            createemployee.save()
+            if (createemployee) res.json({ success: "employee added Successfully" })
+  }
+  catch (err){
+          console.log(err)
+  }
+}
+   
 
 
 // Retrieve all Tutorials from the database.
-exports.findAll = (req, res) => {
+exports.readoneemployee = (req, res) => {
   
 };
 
 // Find a single Tutorial with an id
-exports.findOne = (req, res) => {
+exports.allemployee = (req, res) => {
   
 };
 
