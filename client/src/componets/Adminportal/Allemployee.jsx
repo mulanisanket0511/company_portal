@@ -1,78 +1,99 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
+import * as React from "react";
+import Paper from "@mui/material/Paper";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TablePagination from "@mui/material/TablePagination";
+import TableRow from "@mui/material/TableRow";
+import { Button } from "@mui/material";
+import axios from "axios";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 18,
-  },
-}));
+export default function StickyHeadTable() {
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+ const [userdata, setUserdata] = React.useState([]);
+       axios.get("http://localhost:5000/employee/all")
+      .then((res) => {
+      setUserdata(res.data);
+});
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-  createData('Frozen yoghurt', 100, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
 
-export default function Allemployee() {
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
   return (
-    <TableContainer component={Paper}>
-       <Typography style={{ fontWeight: "bold", }} variant="h4" align="center" color="text.secondary" paragraph>
-             All Employees Table
-          </Typography>
-      <Table sx={{ maxWidth: 1260, marginLeft: 32 }} aria-label="customized table">
-        <TableHead>
-         
-          
-          <TableRow>
-            <StyledTableCell> Full Name</StyledTableCell>
-            <StyledTableCell align="center">Profile pic </StyledTableCell>
-            <StyledTableCell align="center"> Email Address</StyledTableCell>
-            <StyledTableCell align="center">phone</StyledTableCell>
-            <StyledTableCell align="center">password</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-              {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="center">{row.calories}</StyledTableCell>
-              <StyledTableCell align="center">{row.fat}</StyledTableCell>
-              <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="center">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Paper sx={{ width: "100%", overflow: "hidden" }}>
+      <TableContainer sx={{ maxHeight: 440 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">user id</TableCell>
+              <TableCell align="center">Profile</TableCell>
+              <TableCell align="center">Name</TableCell>
+              <TableCell align="center">Email</TableCell>
+              <TableCell align="center">Phone Number</TableCell>
+              <TableCell align="center">Password</TableCell>
+              <TableCell align="center">Action</TableCell>
+              
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {userdata.map((user, index) => (
+              <TableRow>
+                <TableCell align="center">{index + 1}</TableCell>
+                <TableCell align="center">
+                  <img
+                    src={`${user.pic}`}
+                    style={{ borderRadius: "50%" }}
+                    height={"55px"}
+                    width={"55px"}
+                    alt=""
+                    srcset=""
+                  />
+                </TableCell>
+                <TableCell align="center">{user.name}</TableCell>
+                <TableCell align="center">{user.email}</TableCell>
+                <TableCell align="center">{user.phone}</TableCell>
+                <TableCell align="center">{user.pass}</TableCell>
+                <TableCell align="center">
+                  <Button
+                    variant="success"
+                    onClick={(e) => {
+                      window.location = `/update/${index}/${user._id}`;
+                    }}
+                  >
+                    Update<i class="fa fa-download" aria-hiddern="true"></i>
+                  </Button>
+                </TableCell>
+
+                <TableCell align="center">
+                  {/* <Button variant="danger" onClick={(e) => del(user._id)}>
+                    Delete <i class="fa fa-delete" aria-hiddern="true"></i>
+                  </Button> */}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        // count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </Paper>
   );
 }
