@@ -8,7 +8,7 @@ exports.addemployee = async(req, res) => {
   try{
     console.log(req.body);
     console.log(req.file);
-    const { name, email, phone, password,role } = req.body;
+    const { name, email, phone, password } = req.body;
     const pic = req.file
         var path = await uploadsingle(pic.path,pic.fieldname);
         fs.unlink(pic.path, () => {
@@ -26,7 +26,7 @@ exports.addemployee = async(req, res) => {
                 phone: phone,
                 pic: path,
                 password: password,
-                role: role
+                
             })}
             console.log(createemployee);
             createemployee.save()

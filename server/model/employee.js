@@ -16,9 +16,7 @@ const employeeSchema =  mongoose.Schema({
     password:{
         type:String
     },
-    role: {
-        type:String,
-    }
+
 },{timestamps:true})
 
 module.exports = mongoose.model("employee",employeeSchema)
