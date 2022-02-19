@@ -44,15 +44,47 @@ body {
 .responsive {
   justify-content: center;
   display: flex;
-  margin-top: -90px !important
+  margin-top: -45px !important
 }
 .background{
-  background-image: url("./image/background.png");
-  margin-top: -65px !important;
+  background-image: url("./image/background.png") !important;
+  height: 673px !important;
+  margin-top: -70px !important;
 }
-Card{
-  margin-top: 100px !important;
+.container{
+  display: flex;
 }
+.picture{
+  margin-top: 15px;
+}
+.admin{
+  font-size: 22px;
+  color: darkblue;
+  font-family: 'Sigmar One', 'cursive';
+}
+.name{
+  font-size: 45px;
+  margin-top: 55px;
+  margin-left: 30px;
+  color:rgb(116, 169, 217);
+  font-family: 'Sigmar One', 'cursive';
+}
+.name1{
+  font-size: 20px;
+  font-weight:bold;
+  margin-left: 35px;
+  color:rgb(116, 169, 217);
+margin-bottom: 16px;
+}
+.phone{
+  margin-top: 12px;
+}
+button{
+  margin-left: 23px !important;
+  margin-top: 23px !important;
+  font-size: 13px !important;
+}
+
 
 
 /* media quary Registetion form*/

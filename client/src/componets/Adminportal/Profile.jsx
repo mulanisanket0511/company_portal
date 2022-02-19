@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
-import {ListGroupItem,ListGroup,Card}  from 'react-bootstrap'
+import { ListGroupItem, ListGroup, Card, Button } from 'react-bootstrap'
 import profile from '../../image/profile.jpg'
-import {MdOutlineDriveFileRenameOutline,MdMarkEmailUnread} from "react-icons/md";
-import {BsTelephoneForwardFill} from 'react-icons/bs'
-import {RiAdminFill} from 'react-icons/ri'
+import { MdOutlineDriveFileRenameOutline, MdMarkEmailUnread } from "react-icons/md";
+import { MdEmail } from 'react-icons/md'
+import { BsTelephoneFill } from 'react-icons/bs'
 import axios from 'axios';
 import background from '../../image/background.jpg'
+import { Grid } from '@mui/material';
 
 export const Profile = () => {
 
@@ -26,33 +27,43 @@ export const Profile = () => {
 
     return (
         <>
-        <div className="background">
-    
-<Card style={{ width: '78%',marginLeft:"285px",height:'580px'}}>
+            <div className="background">
+            </div>
+            <Card style={{ width: '78%', marginLeft: "285px", height: '575px', marginTop: "-600px" }}>
+            <div className='container'>
+                        <div className="picture">
+                            <img style={{ borderRadius: "110px", width: "180px", height: "175px", marginLeft: "8px", marginTop: "5px" }}
+                                src={user.pic} alt="profile" />
+                        </div>
+                        <div className="name">
+                            {user.name}
+                            <div className="admin">
+                                {user.role}
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                <Grid container spacing={2}>
+                    <Grid item xs={3}>
+                   <div className="name1">
+                       Profile Details
+                   </div>
+                  < MdEmail style={{color:"rgb(116, 169, 217)",marginLeft:"15px",marginRight:"15px"}}/>{user.email}
+                  <div className="phone">
+                  <BsTelephoneFill style={{color:"rgb(116, 169, 217)",marginLeft:"15px",marginRight:"15px"}} /> {user.phone}
+                  </div>
+                  <button className="btn btn-primary">EDIT PROFILE</button>
 
-  <Card.Body>
-      <div className="row">
-          <div className="col-2">
-          <img style={{ borderRadius: "88px", width: "170px", height: "170px", marginLeft: "15px"}}
-        src={user.pic} alt="profile" />
-          </div>
-          <div className="col-4"></div>
-          <div className="col-6"></div>
-      </div>
 
-  </Card.Body>
-  <ListGroup className="list-group-flush">
-    <ListGroupItem>Cras justo odio</ListGroupItem>
-    <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-    <ListGroupItem>Vestibulum at eros</ListGroupItem>
-  </ListGroup>
-  <Card.Body>
-    <Card.Link href="#">Card Link</Card.Link>
-    <Card.Link href="#">Another Link</Card.Link>
-  </Card.Body>
-</Card>
+                    </Grid>
+                    <Grid item xs={9}>
+                    </Grid>
+                </Grid>
 
-</div>
+
+            </Card>
+
+
 
         </>
     )
