@@ -43,7 +43,7 @@ function Admindetail(props) {
     "/profile",
     "/dashboard",
     "/add-employee",
-    "all-employee",
+    "/all-employee",
     "/holiday-list",
     "/logout"
 
@@ -75,6 +75,7 @@ function Admindetail(props) {
 
 
   return (
+
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
@@ -84,20 +85,6 @@ function Admindetail(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Company portal
-          </Typography>
-        </Toolbar>
       </AppBar>
       <Box
         component="nav"
@@ -138,18 +125,7 @@ function Admindetail(props) {
 
 
       </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
-        <Toolbar />
-        <Typography paragraph></Typography>
-        <Typography paragraph></Typography>
-      </Box>
+  
     </Box>
   );
 }

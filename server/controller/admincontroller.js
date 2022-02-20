@@ -2,6 +2,7 @@ const express = require('express')
 const {uploadsingle} = require('../middelware/cloudinary')
 const admin = require('../model/admin')
 const fs = require('fs')
+const { signAccessToken } = require('../middelware/jwt')
 
 
 exports.alladmin = async(req,res) => {
@@ -49,8 +50,13 @@ exports.Addadmin = async (req,res) => {
 exports.Login = async (req, res) => {
     const { email, password } = req.body
     const loginadmin = await admin.findOne({ email: email, password: password })
-    if (loginadmin) {
-        res.send(loginadmin)
+    const token = await signAccessToken(loginadmin)
+    if (token) {
+        res.json({
+            "token":token,
+            "id":loginadmin._id
+            
+        })
     }
     else {
         res.status(400).send({ msg: 'Error please do it again' })

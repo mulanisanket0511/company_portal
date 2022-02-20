@@ -36,7 +36,8 @@ export default function SignInSide() {
     axios.post("http://localhost:5000/login", data)
       .then((res) => {
         console.log(res.data)
-        localStorage.setItem("user", res.data._id)
+        localStorage.setItem("token", res.data.token)
+        localStorage.setItem("user", res.data.id)
         window.location="/profile"
       })
       .catch((err) => {

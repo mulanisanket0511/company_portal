@@ -16,12 +16,13 @@ import { BsArrowRight } from "react-icons/bs";
 import { SiWebpack } from "react-icons/si";
 
 import { Box, typography } from '@mui/system';
+import Admindetail from './Admindetail';
 
 
 export default function Companyprofile() {
     return (
         <>
-
+             <Admindetail />
             <Container maxWidth="md">
                 <Typography
                     style={{ fontWeight: "bold" }}

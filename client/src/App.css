@@ -10,6 +10,9 @@ body {
   font-weight: bold !important;
 
 }
+.MuiBox-root.css-19ankk4{
+  margin-top: 0px !important;
+}
 
 .css-1t29gy6-MuiToolbar-root1 {
   background-image: linear-gradient(to right, blue, skyblue);
@@ -40,16 +43,24 @@ body {
 .admin {
   margin-left: "120px";
 }
+.employ{
+  margin-left: 277px !important;
+  box-shadow: 0px 0px 10px !important;
+}
+.heading{
+  margin-left: 750px !important;
+  color:rgb(29, 117, 233) !important
+}
 
 .responsive {
   justify-content: center;
   display: flex;
-  margin-top: -45px !important
+  margin-top: 50px !important
 }
 .background{
   background-image: url("./image/background.png") !important;
-  height: 673px !important;
-  margin-top: -70px !important;
+  height: 751px !important;
+  margin-top: px !important;
 }
 .container{
   display: flex;
@@ -82,6 +93,9 @@ margin-bottom: 16px;
 button{
   margin-top: 23px !important;
   font-size: 13px !important;
+}
+.btn{
+  margin-top: 6px !important;
 }
 
 
@@ -116,7 +130,9 @@ button{
 @media screen and (max-width: 375px) {
   .card {
     margin-left: 10px !important;
-
+  }
+  .responsive{
+   margin-top: 0px !important;
   }
 
   

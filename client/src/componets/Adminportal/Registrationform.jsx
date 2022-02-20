@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import axios from "axios";
 import {useNavigate } from "react-router-dom";
+import Admindetail from "./Admindetail";
 
 
 
@@ -34,7 +35,10 @@ export default function Signup(props) {
   }
   else {
     //employee
-    axios.get("http://localhost:5000/employee/all").then((res) => {
+    axios.get("http://localhost:5000/employee/all",{
+      headers: {"Authorization":`Bearer ${localStorage.getItem("token")}`}
+    })
+    .then((res) => {
       setData(res.data);
     });
   }
@@ -71,9 +75,11 @@ export default function Signup(props) {
     data.append("employeepic", image);
    
       //employee
-      axios.post("http://localhost:5000/employee/add-employee", data)
+      axios.post("http://localhost:5000/employee/add-employee",data,{ 
+        headers: {Authorization:`Bearer ${localStorage.getItem("token")}`}
+    })
         .then((res) => {
-          console.log(res);
+          console.log(res.data);
           alert("Data send successfully..");
           navigate("/all-employee");
         })
@@ -82,8 +88,11 @@ export default function Signup(props) {
     }
   };
   
-  var emaildata = [];
-  data.map((item) => emaildata.push(item.email));
+  var emaildata = []
+  if (data === undefined) {
+    
+    data.map((item) => emaildata.push(item.email))
+  }
 
   const handleadmin = (e) => {
     e.preventDefault();
@@ -103,11 +112,13 @@ export default function Signup(props) {
   else{
      sendData();
   }
-  }
+  } 
+  
 
 
   return (
     <>
+    { props.role ? <Admindetail />:null}
    <div className={!props.role?null:"responsive"} style={{ display: "flex", justifyContent: "center" }}>
        
         <div className="col-4 card" style={{ width: "450px", marginLeft: "auto !important",marginRight: "auto !important",marginTop:"50px" }}>

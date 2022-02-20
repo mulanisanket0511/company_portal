@@ -38,19 +38,23 @@ exports.addemployee = async(req, res) => {
 }
    
 
-
-// Retrieve all Tutorials from the database.
-exports.readoneemployee = (req, res) => {
-  
-};
-
 // Find a single Tutorial with an id
-exports.allemployee = (req, res) => {
-  
+exports.allemployee = async (req, res) => {
+  var allemployee = await employee.find({}).lean()
+  res.send(allemployee)
 };
 
 // Update a Tutorial by the id in the request
-exports.update = (req, res) => {
+exports.viewemployee = async(req, res) => {
+  var id = req.params.id;
+  // console.log(id);
+  const viewemployee = await employee.findOne({ _id: id }).lean();
+  if (viewemployee) {
+    console.log(viewemployee);
+    res.send(viewemployee);
+  } else {
+    console.log("fail");
+  }
   
 };
 
