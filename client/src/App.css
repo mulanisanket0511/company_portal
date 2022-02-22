@@ -107,6 +107,18 @@ button{
   float: right !important;
   margin-top: 6rem !important;
 }
+.edit{
+  margin-left: 25px;
+  margin-top: 10px;
+}
+.card:hover{
+  box-shadow: 3px 3px 9px  ;
+}
+.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root{
+  text-align: center;
+  margin-top: 26px;
+  color: gray;
+}
 
 
 /* media quary Registetion form*/
