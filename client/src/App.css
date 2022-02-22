@@ -60,7 +60,7 @@ body {
 .background{
   background-image: url("./image/background.png") !important;
   height: 751px !important;
-  margin-top: px !important;
+  margin-top: 0px !important;
 }
 .container{
   display: flex;
@@ -97,11 +97,16 @@ button{
 .btn{
   margin-top: 6px !important;
 }
-/* .d-flex{
-  margin-left:280px !important;
-  margin-top:125px !important;
-} */
-
+.MuiTypography-root.MuiTypography-h5.css-ag7rrr-MuiTypography-root{
+  display: flex;
+ }
+ .css-i4bv87-MuiSvgIcon-root{
+   height: 40px !important;
+ }
+.button{
+  float: right !important;
+  margin-top: 6rem !important;
+}
 
 
 /* media quary Registetion form*/
