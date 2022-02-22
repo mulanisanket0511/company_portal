@@ -48,7 +48,6 @@ export default function StickyHeadTable() {
       <Admindetail />
      
       <h2 className="heading mt-4"> All Employ Detail </h2>
-   
       <Paper
         className="employ mt-xl-5 "
         sx={{ width: "80%", overflow: "hidden" }}
