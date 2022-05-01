@@ -32,16 +32,16 @@ export default function Viewemployee() {
         setemployeeview(response.data);
       });
   }, []);
-  const email= {
+  const emaillist= {
     name: employeeview.name,
-    to_email: email,
+    to_email:employeeview.email,
     holiday: holiday,
     sallery: sallery,
   };
 
  init("user_AWXu32CCuDFQigjASbRix");
  const confirmeemail = () => {
-  emailjs.send("service_dp8vt3p","template_6auk0r2",email);
+  emailjs.send("service_dp8vt3p","template_6auk0r2",emaillist);
   navigate("/all-employee");
  }
   return (
@@ -74,11 +74,8 @@ export default function Viewemployee() {
                         <Typography  variant="h5" >
                          <LocalPhoneIcon/><div className="icon mx-4 mt-1">{employeeview.phone} </div>
                         </Typography>
-                         <Typography  variant="h5" >
-                         <HolidayVillageIcon/><div className="icon mx-4 mt-1">holiday</div>
-                        </Typography>
                         <Typography  variant="h5" >
-                         <PaidIcon/><div className="icon mx-4 mt-1">sallary </div>
+                         <PaidIcon/><div className="icon mx-4 mt-1">15850 </div>
                         </Typography>
                         <button className="btn button btn-primary " onClick={(e) => confirmeemail(e)}>Confirm</button>
                       </CardContent>

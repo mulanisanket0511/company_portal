@@ -44,7 +44,6 @@ function Admindetail(props) {
     "/dashboard",
     "/add-employee",
     "/all-employee",
-    "/holiday-list",
     "/logout"
 
   ]
@@ -56,7 +55,7 @@ function Admindetail(props) {
 
 
       <List>
-        {[" Profile","Dashboard", "Add Employee","All Employee", "Holiday list","Logout"].map(
+        {[" Profile","Dashboard", "Add Employee","All Employee","Logout"].map(
           (text, index) => (
             <Link className="text-decoration-none" to={location[index]}>
               <ListItem button key={text}>
