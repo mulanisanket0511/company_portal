@@ -132,6 +132,7 @@ export default function Signup(props) {
             marginLeft: "auto !important",
             marginRight: "auto !important",
             marginTop: "50px",
+         
           }}
         >
           <ThemeProvider theme={theme}>
